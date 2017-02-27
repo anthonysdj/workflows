@@ -14,6 +14,8 @@ var jsSrcs = [
     'components/scripts/template.js'
 ];
 var sassSrcs = ['components/sass/style.scss'];
+var htmlSrcs = ['builds/dev/*.html'];
+var jsonSrcs = ['builds/dev/js/*.json'];
 
 gulp.task('coffee', function() {
     gulp.src(coffeeSrcs)
@@ -42,6 +44,16 @@ gulp.task('compass', function() {
         .pipe(connect.reload())
 });
 
+gulp.task('html', function() {
+    gulp.src(htmlSrcs)
+        .pipe(connect.reload())
+});
+
+gulp.task('json', function() {
+    gulp.src(jsonSrcs)
+        .pipe(connect.reload())
+});
+
 gulp.task('connect', function() { // Start the server
     connect.server({
         root: 'builds/dev/',
@@ -53,8 +65,10 @@ gulp.task('watch', function() {
     gulp.watch(coffeeSrcs, ['coffee']);
     gulp.watch(jsSrcs, ['js']);
     gulp.watch('components/sass/*.scss', ['compass']);
+    gulp.watch(htmlSrcs, ['html']);
+    gulp.watch(jsonSrcs, ['json']);
 });
 
-gulp.task('default', ['coffee', 'js', 'compass', 'connect', 'watch'], function() {
+gulp.task('default', ['coffee', 'js', 'compass', 'html', 'json', 'connect', 'watch'], function() {
     console.log( 'Running default task!' );
 });
