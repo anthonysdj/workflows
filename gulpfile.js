@@ -39,6 +39,12 @@ gulp.task('compass', function() {
         .pipe(gulp.dest('builds/dev/css'))
 });
 
+gulp.task('watch', function() {
+    gulp.watch(coffeeSrcs, ['coffee']);
+    gulp.watch(jsSrcs, ['js']);
+    gulp.watch('components/sass/*.scss', ['compass']);
+});
+
 gulp.task('default', ['coffee', 'js', 'compass'], function() {
     console.log( 'Running default task!' );
 });
