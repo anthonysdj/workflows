@@ -38,3 +38,7 @@ gulp.task('compass', function() {
             .on('error', gutil.log))
         .pipe(gulp.dest('builds/dev/css'))
 });
+
+gulp.task('default', ['coffee', 'js', 'compass'], function() {
+    console.log( 'Running default task!' );
+});
