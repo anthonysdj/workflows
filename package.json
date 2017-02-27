@@ -4,7 +4,7 @@
   "description": "A project to showcase workflows",
   "repository": {
     "type": "git",
-    "url": "https://github.com/squidbomb/workflows.git"
+    "url": "git@github.com:squidbomb/workflows.git"
   },
   "author": "Tons",
   "devDependencies": {
