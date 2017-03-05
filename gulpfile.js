@@ -35,12 +35,13 @@ gulp.task('js', function() {
 gulp.task('compass', function() {
     gulp.src(sassSrcs)
         .pipe(compass({
+            css: 'builds/dev/css',
             sass: 'components/sass',
             image: 'builds/dev/images',
             style: 'expanded'
         })
             .on('error', gutil.log))
-        .pipe(gulp.dest('builds/dev/css'))
+        // .pipe(gulp.dest('builds/dev/css'))
         .pipe(connect.reload())
 });
 
